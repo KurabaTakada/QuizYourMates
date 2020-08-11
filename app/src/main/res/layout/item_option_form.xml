@@ -1,36 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_weight="5"
-        android:ems="10"
-        android:hint="Enter Option"
-        android:inputType="textPersonName" />
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="option"
+            type="com.murkoto.quizyourcircle.model.Option" />
+    </data>
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Correct Answer"
-            android:textSize="8sp"
-            android:padding="4dp"
-            />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp">
 
-        <Switch
-            android:id="@+id/switchCorrectAnswer"
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="5"
+            android:ems="10"
+            android:hint="Enter Option"
+            android:inputType="textMultiLine"
+            android:text="@={option.content}" />
+
+        <LinearLayout
+            android:id="@+id/correctAnswerIndicator"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:padding="8dp" />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/switchCorrectAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:visibility="@{option.correct ? View.VISIBLE : View.INVISIBLE}"
+                android:src="@drawable/ic_done_black_24dp" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+</layout>

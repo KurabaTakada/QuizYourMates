@@ -40,4 +40,6 @@ abstract class QuizDatabase: RoomDatabase() {
 
     abstract fun questionDao(): QuestionDao
 
+    abstract fun optionDao(): OptionDao
+
 }

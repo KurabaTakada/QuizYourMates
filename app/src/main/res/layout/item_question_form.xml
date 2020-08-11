@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -9,40 +9,50 @@
             type="com.murkoto.quizyourcircle.model.Question" />
     </data>
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="8dp"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="16dp"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary" />
-
-            <EditText
-                android:id="@+id/etQuestionField"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:ems="10"
-                android:text="@={question.question}"
-                android:hint="@string/enter_question"
-                android:inputType="textPersonName"
-                android:importantForAutofill="no" />
-        </LinearLayout>
+                android:orientation="horizontal">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvOptionsForm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/item_option_form"
-            tools:itemCount="4"
-            />
-    </LinearLayout>
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="16dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary" />
+
+                <EditText
+                    android:id="@+id/etQuestionField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:ems="10"
+                    android:text="@={question.question}"
+                    android:hint="@string/enter_question"
+                    android:inputType="textMultiLine"
+                    android:importantForAutofill="no" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvOptionsForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                tools:listitem="@layout/item_option_form"
+                tools:itemCount="4"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

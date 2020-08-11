@@ -1,7 +1,9 @@
 package com.murkoto.quizyourcircle.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,7 +24,8 @@ class MainActivity : AppCompatActivity() {
         setupRecyclerView()
         observeQuiz()
         fabAdd.setOnClickListener {
-            mViewModel.addDummyQuiz()
+            val intent = Intent(this@MainActivity, CreateQuizActivity::class.java)
+            startActivity(intent)
         }
     }
 

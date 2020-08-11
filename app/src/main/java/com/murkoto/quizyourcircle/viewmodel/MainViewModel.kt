@@ -9,8 +9,5 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val mRepo = MainRepository(application)
 
     fun getQuizes() = mRepo.getQuizes()
-    fun addDummyQuiz() {
-        mRepo.addDummyQuiz()
-    }
 
 }

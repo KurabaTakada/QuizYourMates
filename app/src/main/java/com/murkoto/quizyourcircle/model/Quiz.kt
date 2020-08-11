@@ -5,10 +5,9 @@ import androidx.room.*
 @Entity(tableName = "quiz")
 data class Quiz (
     @PrimaryKey(autoGenerate = true) var id: Long = 0,
-    @ColumnInfo(name = "title") var title: String?
-) {
-    constructor(): this(0, "")
-}
+    @ColumnInfo(name = "title") var title: String? = "",
+    @Ignore val questions: MutableList<Question> = mutableListOf()
+)
 
 @Entity(tableName = "question", indices = [Index(value = ["quiz_id"])])
 data class Question (
@@ -20,17 +19,20 @@ data class Question (
     @Ignore var options: MutableList<Option> = mutableListOf()
 
     init {
+        val rand = (1..4).random()
         for (i in 1..4) {
-            this.options.add(Option(0, 0, "", false))
+            var isCorrect = false
+            if (rand == i) isCorrect = true
+            this.options.add(Option(0, 0, "", isCorrect))
         }
     }
 }
 
 @Entity(tableName = "option", indices = [Index(value = ["question_id"])])
 data class Option (
-    @PrimaryKey(autoGenerate = true) val id: Int,
-    @ColumnInfo(name = "question_id") val questionId: Int,
-    @ColumnInfo(name = "column_info") val content: String,
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
+    @ColumnInfo(name = "question_id") var questionId: Long = 0,
+    @ColumnInfo(name = "column_info") var content: String = "",
     @ColumnInfo(name = "correct") val correct: Boolean
 )
 
