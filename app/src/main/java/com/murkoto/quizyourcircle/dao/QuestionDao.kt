@@ -1,10 +1,12 @@
-package com.murkoto.quizyourcircle.model
+package com.murkoto.quizyourcircle.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.murkoto.quizyourcircle.model.Question
+import com.murkoto.quizyourcircle.model.QuestionWithOptions
 
 @Dao
 interface QuestionDao {

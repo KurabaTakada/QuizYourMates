@@ -65,7 +65,7 @@ data class SubmissionWithSelectionAndOption (
         parentColumn = "id",
         entityColumn = "submission_id"
     )
-    val selectionAndOption: List<SelectionAndOption>
+    val selectionAndOption: List<Selection>
 )
 
 data class SelectionAndOption (

@@ -29,6 +29,7 @@ class QuizRecyclerViewAdapter(val context: Context): RecyclerView.Adapter<QuizRe
         holder.containerView.setOnClickListener {
             val intent = Intent(context, QuizDetailActivity::class.java)
             intent.putExtra("hai", quiz.id)
+            intent.putExtra("hiu", quiz.title)
             context.startActivity(intent)
         }
     }

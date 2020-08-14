@@ -10,6 +10,7 @@ class CreateQuizViewModel(application: Application): AndroidViewModel(applicatio
 
     val mRepo = CreateQuizRepository(application)
     val quiz = Quiz()
+
     val submissionStatusLiveData: LiveData<Boolean>
         get() = mRepo.submitStatusLiveData
 

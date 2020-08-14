@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.CreateQuizActivity"></activity>
+        <activity android:name=".view.FillQuizActivity"></activity>
+        <activity android:name=".view.CreateQuizActivity" />
         <activity android:name=".view.QuizDetailActivity" />
         <activity android:name=".view.MainActivity">
             <intent-filter>

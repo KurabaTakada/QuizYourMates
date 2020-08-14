@@ -1,9 +1,14 @@
-package com.murkoto.quizyourcircle.model
+package com.murkoto.quizyourcircle.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.murkoto.quizyourcircle.dao.OptionDao
+import com.murkoto.quizyourcircle.dao.QuestionDao
+import com.murkoto.quizyourcircle.dao.QuizDao
+import com.murkoto.quizyourcircle.dao.SubmissionDao
+import com.murkoto.quizyourcircle.model.*
 
 @Database(entities = [
     Quiz::class,
@@ -20,7 +25,8 @@ abstract class QuizDatabase: RoomDatabase() {
         private var INSTANCE: QuizDatabase? = null
 
         fun getDatabase(context: Context): QuizDatabase {
-            val tempInstance = INSTANCE
+            val tempInstance =
+                INSTANCE
             if (tempInstance != null) {
                 return tempInstance
             }
@@ -41,5 +47,7 @@ abstract class QuizDatabase: RoomDatabase() {
     abstract fun questionDao(): QuestionDao
 
     abstract fun optionDao(): OptionDao
+
+    abstract fun submissionDao(): SubmissionDao
 
 }

@@ -1,11 +1,9 @@
 package com.murkoto.quizyourcircle.repository
 
 import android.app.Application
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
-import com.murkoto.quizyourcircle.model.Question
 import com.murkoto.quizyourcircle.model.Quiz
-import com.murkoto.quizyourcircle.model.QuizDatabase
+import com.murkoto.quizyourcircle.database.QuizDatabase
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 

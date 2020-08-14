@@ -8,6 +8,6 @@ class QuizDetailViewModel(application: Application) : AndroidViewModel(applicati
 
     private val mRepo = QuizDetailRepository(application)
 
-    fun getQuiestions(id: Long) = mRepo.getQuestions(id)
+    fun getSubmissions(quizId: Long) = mRepo.getSubmissions(quizId)
 
 }

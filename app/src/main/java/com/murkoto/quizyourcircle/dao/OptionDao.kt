@@ -1,8 +1,9 @@
-package com.murkoto.quizyourcircle.model
+package com.murkoto.quizyourcircle.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
+import com.murkoto.quizyourcircle.model.Option
 
 @Dao
 interface OptionDao {

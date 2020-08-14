@@ -16,8 +16,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp">
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_width="16dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                />
 
             <TextView
                 android:id="@+id/tvQuizTitle"
@@ -25,7 +30,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="16"
                 android:textSize="16sp"
-                android:layout_marginRight="8dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
                 tools:text="Tesutoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
 
             <ImageView
