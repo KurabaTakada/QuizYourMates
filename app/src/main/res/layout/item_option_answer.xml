@@ -9,7 +9,8 @@
             type="com.murkoto.quizyourcircle.model.Option" />
     </data>
     
-    <LinearLayout 
+    <LinearLayout
+        android:id="@+id/selectionContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
@@ -19,6 +20,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:checked="@{option.selected}"
+            android:clickable="false"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:text="@{option.content}"

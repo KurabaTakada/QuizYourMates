@@ -1,5 +1,6 @@
 package com.murkoto.quizyourcircle.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -22,10 +23,14 @@ class QuizDetailActivity : AppCompatActivity() {
         intent.getStringExtra("hiu")?.let {title ->
             supportActionBar?.title = title
         }
-        intent.getLongExtra("hai", -1).let { quizId ->
-            mViewModel.getSubmissions(quizId).observe(this, Observer { submissions ->
-                binding.isEmpty = submissions.isEmpty()
-            })
+        val quizId = intent.getLongExtra("hai", -1)
+        mViewModel.getSubmissions(quizId).observe(this, Observer { submissions ->
+            binding.isEmpty = submissions.isEmpty()
+        })
+        binding.btnTakeQuiz.setOnClickListener {
+            val intent = Intent(this, FillQuizActivity::class.java)
+            intent.putExtra(FillQuizActivity.QUIZ_ID_EXTRA, quizId)
+            startActivity(intent)
         }
     }
 }

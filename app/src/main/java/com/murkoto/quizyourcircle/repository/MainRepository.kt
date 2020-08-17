@@ -14,17 +14,4 @@ class MainRepository(application: Application) {
 
     fun getQuizes() = db.quizDao().getQuizes()
 
-    fun addDummyQuiz() {
-        val quiz = Quiz()
-        quiz.title = "quiz " + System.currentTimeMillis()
-        executorService.execute {
-            val id = db.quizDao().insert(quiz)
-            val questions = mutableListOf<Question>()
-            questions.add(Question(0, id, "really?"))
-            questions.add(Question(0, id, "really?"))
-            questions.add(Question(0, id, "really?"))
-            db.questionDao().insert(questions)
-        }
-    }
-
 }

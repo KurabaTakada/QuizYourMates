@@ -34,20 +34,23 @@ data class Option (
     @ColumnInfo(name = "question_id") var questionId: Long = 0,
     @ColumnInfo(name = "column_info") var content: String = "",
     @ColumnInfo(name = "correct") val correct: Boolean
-)
+) {
+    var selected = false
+}
 
 @Entity(tableName = "submission")
 data class Submission (
-    @PrimaryKey(autoGenerate = true) val id: Int,
-    @ColumnInfo(name = "quiz_id") val quizId: Int,
-    @ColumnInfo(name = "submitter") val submitter: String
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
+    @ColumnInfo(name = "quiz_id") var quizId: Long = 0,
+    @ColumnInfo(name = "submitter") var submitter: String = ""
 )
 
 @Entity(tableName = "selection", indices = [Index(value = ["submission_id", "option_id"])])
 data class Selection (
-    @PrimaryKey(autoGenerate = true) val id: Int,
-    @ColumnInfo(name = "submission_id") val submissionId: Int,
-    @ColumnInfo(name = "option_id") val optionId: Int
+    @PrimaryKey(autoGenerate = true) val id: Long,
+    @ColumnInfo(name = "submission_id") val submissionId: Long,
+    @ColumnInfo(name = "question_id") val questionId: Long,
+    @ColumnInfo(name = "option_id") val optionId: Long
 )
 
 data class QuestionWithOptions (
@@ -76,3 +79,4 @@ data class SelectionAndOption (
     )
     val option: Option
 )
+
