@@ -38,7 +38,7 @@ class OptionAnswerRecyclerViewAdapter(val options: List<Option>): RecyclerView.A
                 options[selectedPosition].selected = false
                 notifyItemChanged(selectedPosition)
             }
-            option.selected = true
+            option.selected = !option.selected
             notifyItemChanged(position)
             selectedPosition = position
         }
